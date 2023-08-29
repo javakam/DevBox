@@ -1,8 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.DevBox" parent="Theme.Material3.Light">
+    <!-- Theme.Material3.Light -->
+    <style name="Base.Theme.DevBox" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple</item>
+        <!--        <item name="colorPrimaryVariant">@color/purple</item>-->
+        <!--        <item name="colorOnPrimary">@color/white</item>-->
+        <!-- Secondary brand color. -->
+        <!--        <item name="colorSecondary">@color/purple</item>-->
+        <!--        <item name="colorSecondaryVariant">@color/purple</item>-->
+        <!--        <item name="colorOnSecondary">@color/black</item>-->
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/purple</item>
     </style>
 
     <style name="Theme.DevBox" parent="Base.Theme.DevBox" />

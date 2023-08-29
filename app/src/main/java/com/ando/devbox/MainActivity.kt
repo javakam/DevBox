@@ -2,14 +2,19 @@ package com.ando.devbox
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock.sleep
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
+/**
+ * @author javakam
+ * @date 2023-08-29 15:39:12
+ */
 class MainActivity : AppCompatActivity() {
-
     private var isMobileDebugMode = false // 判断手机是否处于开发者模式
     private val mTvTitle: TextView by lazy { findViewById(R.id.tvHello) }
     private val mBtAboutDevice: Button by lazy { findViewById(R.id.btAboutDevice) } // 关于手机
@@ -18,10 +23,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val toolBar: Toolbar = findViewById(R.id.toolbar)
+        toolBar.setTitle("开发者选项")
+        setSupportActionBar(toolBar)
     }
 
     override fun onResume() {
         super.onResume()
+        sleep(50)
         checkDeveloperMode()
         setDisplay()
     }
@@ -32,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         isMobileDebugMode = (developerMode == 1)
         if (isMobileDebugMode) {
             // 开发者模式已开启
-            mTvTitle.text = "开发者模式已开启!"
+            mTvTitle.text = "开发者模式已开启！"
         } else {
             // 开发者模式未开启
-            mTvTitle.text = "自上而下依次点击按钮即可!"
+            mTvTitle.text = "自上而下依次点击按钮即可！"
         }
     }
 
@@ -58,6 +67,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS))
         }
     }
-
-
 }
